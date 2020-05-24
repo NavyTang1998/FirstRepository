@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.hua.dao.BookDao">
+    <select id="queryBookById"  resultType="book">
+        SELECT * from books where bookID=#{bookID};
+    </select>
+    <select id="queryAllBook" resultType="book">
+        SELECT * from books;
+    </select>
+    <insert id="addBook" parameterType="book">
+      insert into books (bookName, bookCounts) values (#{bookName},#{bookCounts});
+    </insert>
+    <delete id="deleteBookById">
+        DELETE FROM books WHERE bookID=#{bookID};
+    </delete>
+    <update id="updateBook" parameterType="book">
+        UPDATE books SET bookName=#{bookName},bookCounts=#{bookCounts} where bookID=#{bookID};
+    </update>
+</mapper>
